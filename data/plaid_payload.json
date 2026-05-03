@@ -1,0 +1,512 @@
+{
+  "meta": {
+    "request_id": "fae92b1c-3d44-4f0e-a881-7c09b3e2f001",
+    "institution": {
+      "name": "Chase Business Banking",
+      "institution_id": "ins_56"
+    },
+    "report_generated_at": "2026-05-03T08:00:00Z",
+    "date_range": {
+      "start_date": "2026-02-02",
+      "end_date": "2026-05-03"
+    },
+    "business_profile": {
+      "legal_name": "Meridian Commerce LLC",
+      "industry": "E-Commerce / Consumer Goods",
+      "primary_sales_channel": "Shopify",
+      "payroll_provider": "Gusto",
+      "fiscal_year_end": "December 31"
+    },
+    "historical_trends": {
+      "note": "Derived from 24-month transaction history. Significant Q4 inventory investment observed exactly one year prior.",
+      "q4_inventory_prep_event": {
+        "date": "2025-05-03",
+        "description": "Wholesale Inventory - Q4 Stock Buildup",
+        "counterparty": "Pacific Rim Wholesale Distributors",
+        "amount": -80000.00,
+        "currency": "USD",
+        "category": "Inventory Purchase",
+        "analyst_tag": "SEASONAL_CAPEX",
+        "context": "Annual pattern: business invests heavily in wholesale inventory in Q2/early Q3 to meet Q4 holiday demand. This single transaction represents the largest single outflow in the 24-month lookback window and preceded a 3.2x revenue spike in Q4 2025. Pattern suggests similar capital deployment may be appropriate or expected in Q2-Q3 2026."
+      },
+      "avg_monthly_revenue_trailing_12m": 41250.00,
+      "avg_monthly_cogs_trailing_12m": 18400.00,
+      "avg_monthly_fixed_costs_trailing_12m": 15200.00,
+      "q4_2025_revenue_total": 148000.00,
+      "q4_2025_net_margin_pct": 22.4,
+      "revenue_growth_yoy_pct": 18.7,
+      "seasonal_peak": "Q4 (October - December)",
+      "cash_flow_pattern": "Positive and stable outside Q4 inventory investment periods"
+    }
+  },
+  "accounts": [
+    {
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "name": "Meridian Commerce - Business Checking",
+      "official_name": "Chase Business Complete Checking",
+      "type": "depository",
+      "subtype": "checking",
+      "mask": "4821",
+      "currency_code": "USD",
+      "balances": {
+        "available": 34218.47,
+        "current": 35000.00,
+        "limit": null,
+        "iso_currency_code": "USD",
+        "last_updated_datetime": "2026-05-03T07:45:00Z"
+      },
+      "routing_number": "021000021",
+      "status": "active"
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "txn_001",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-03",
+      "name": "Commercial Rent - 1140 Industrial Pkwy Suite 200",
+      "merchant_name": "Sunrise Property Management",
+      "amount": -5000.00,
+      "currency": "USD",
+      "category": ["Payment", "Rent"],
+      "category_id": "18020004",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["fixed_cost", "recurring_monthly"]
+    },
+    {
+      "transaction_id": "txn_002",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-07",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 19845.32,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-01-25 to 2026-02-06"
+    },
+    {
+      "transaction_id": "txn_003",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-10",
+      "name": "Shopify - Monthly Subscription (Advanced Plan)",
+      "merchant_name": "Shopify Inc.",
+      "amount": -299.00,
+      "currency": "USD",
+      "category": ["Service", "Software"],
+      "category_id": "22016000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["fixed_cost", "recurring_monthly", "platform_fee"]
+    },
+    {
+      "transaction_id": "txn_004",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-15",
+      "name": "Gusto Payroll - Feb 1st Pay Period",
+      "merchant_name": "Gusto",
+      "amount": -10000.00,
+      "currency": "USD",
+      "category": ["Payment", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["fixed_cost", "recurring_monthly", "payroll"],
+      "payroll_detail": {
+        "employees": 4,
+        "gross_wages": 9200.00,
+        "employer_taxes": 800.00
+      }
+    },
+    {
+      "transaction_id": "txn_005",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-18",
+      "name": "Amazon Seller Central - Marketplace Fees",
+      "merchant_name": "Amazon Services",
+      "amount": -1240.75,
+      "currency": "USD",
+      "category": ["Fee", "Marketplace"],
+      "category_id": "22014000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["variable_cost", "marketplace_fee"]
+    },
+    {
+      "transaction_id": "txn_006",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-21",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 20312.18,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-02-07 to 2026-02-20"
+    },
+    {
+      "transaction_id": "txn_007",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-24",
+      "name": "UPS Shipping Account - Monthly Invoice",
+      "merchant_name": "UPS",
+      "amount": -2187.50,
+      "currency": "USD",
+      "category": ["Service", "Shipping"],
+      "category_id": "22012000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["variable_cost", "fulfillment", "cogs"]
+    },
+    {
+      "transaction_id": "txn_008",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-02-28",
+      "name": "Amazon Web Services - Cloud Infrastructure",
+      "merchant_name": "Amazon Web Services",
+      "amount": -312.40,
+      "currency": "USD",
+      "category": ["Service", "Software"],
+      "category_id": "22016000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["fixed_cost", "recurring_monthly", "infrastructure"]
+    },
+    {
+      "transaction_id": "txn_009",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-03",
+      "name": "Commercial Rent - 1140 Industrial Pkwy Suite 200",
+      "merchant_name": "Sunrise Property Management",
+      "amount": -5000.00,
+      "currency": "USD",
+      "category": ["Payment", "Rent"],
+      "category_id": "18020004",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["fixed_cost", "recurring_monthly"]
+    },
+    {
+      "transaction_id": "txn_010",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-07",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 18967.44,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-02-21 to 2026-03-06"
+    },
+    {
+      "transaction_id": "txn_011",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-12",
+      "name": "Google Ads - Digital Marketing",
+      "merchant_name": "Google LLC",
+      "amount": -3500.00,
+      "currency": "USD",
+      "category": ["Service", "Advertising"],
+      "category_id": "22015000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["variable_cost", "marketing", "customer_acquisition"]
+    },
+    {
+      "transaction_id": "txn_012",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-15",
+      "name": "Gusto Payroll - Mar 1st Pay Period",
+      "merchant_name": "Gusto",
+      "amount": -10000.00,
+      "currency": "USD",
+      "category": ["Payment", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["fixed_cost", "recurring_monthly", "payroll"],
+      "payroll_detail": {
+        "employees": 4,
+        "gross_wages": 9200.00,
+        "employer_taxes": 800.00
+      }
+    },
+    {
+      "transaction_id": "txn_013",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-21",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 21043.67,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-03-07 to 2026-03-20"
+    },
+    {
+      "transaction_id": "txn_014",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-25",
+      "name": "UPS Shipping Account - Monthly Invoice",
+      "merchant_name": "UPS",
+      "amount": -2341.20,
+      "currency": "USD",
+      "category": ["Service", "Shipping"],
+      "category_id": "22012000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["variable_cost", "fulfillment", "cogs"]
+    },
+    {
+      "transaction_id": "txn_015",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-03-28",
+      "name": "Meta Ads - Facebook & Instagram Campaigns",
+      "merchant_name": "Meta Platforms Inc.",
+      "amount": -1800.00,
+      "currency": "USD",
+      "category": ["Service", "Advertising"],
+      "category_id": "22015000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["variable_cost", "marketing", "customer_acquisition"]
+    },
+    {
+      "transaction_id": "txn_016",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-01",
+      "name": "Commercial Rent - 1140 Industrial Pkwy Suite 200",
+      "merchant_name": "Sunrise Property Management",
+      "amount": -5000.00,
+      "currency": "USD",
+      "category": ["Payment", "Rent"],
+      "category_id": "18020004",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["fixed_cost", "recurring_monthly"]
+    },
+    {
+      "transaction_id": "txn_017",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-04",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 19578.91,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-03-21 to 2026-04-03"
+    },
+    {
+      "transaction_id": "txn_018",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-08",
+      "name": "Klaviyo - Email Marketing Platform",
+      "merchant_name": "Klaviyo Inc.",
+      "amount": -150.00,
+      "currency": "USD",
+      "category": ["Service", "Software"],
+      "category_id": "22016000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["fixed_cost", "recurring_monthly", "marketing_tech"]
+    },
+    {
+      "transaction_id": "txn_019",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-10",
+      "name": "Amazon Web Services - Cloud Infrastructure",
+      "merchant_name": "Amazon Web Services",
+      "amount": -328.15,
+      "currency": "USD",
+      "category": ["Service", "Software"],
+      "category_id": "22016000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["fixed_cost", "recurring_monthly", "infrastructure"]
+    },
+    {
+      "transaction_id": "txn_020",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-15",
+      "name": "Gusto Payroll - Apr 1st Pay Period",
+      "merchant_name": "Gusto",
+      "amount": -10000.00,
+      "currency": "USD",
+      "category": ["Payment", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["fixed_cost", "recurring_monthly", "payroll"],
+      "payroll_detail": {
+        "employees": 4,
+        "gross_wages": 9200.00,
+        "employer_taxes": 800.00
+      }
+    },
+    {
+      "transaction_id": "txn_021",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-18",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 20891.55,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-04-04 to 2026-04-17"
+    },
+    {
+      "transaction_id": "txn_022",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-22",
+      "name": "UPS Shipping Account - Monthly Invoice",
+      "merchant_name": "UPS",
+      "amount": -2290.80,
+      "currency": "USD",
+      "category": ["Service", "Shipping"],
+      "category_id": "22012000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["variable_cost", "fulfillment", "cogs"]
+    },
+    {
+      "transaction_id": "txn_023",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-04-25",
+      "name": "Google Ads - Digital Marketing",
+      "merchant_name": "Google LLC",
+      "amount": -3750.00,
+      "currency": "USD",
+      "category": ["Service", "Advertising"],
+      "category_id": "22015000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["variable_cost", "marketing", "customer_acquisition"]
+    },
+    {
+      "transaction_id": "txn_024",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-05-02",
+      "name": "Shopify Payout - Bi-Weekly Settlement",
+      "merchant_name": "Shopify Payments",
+      "amount": 19234.78,
+      "currency": "USD",
+      "category": ["Transfer", "Payroll"],
+      "category_id": "21007000",
+      "transaction_type": "credit",
+      "pending": false,
+      "payment_channel": "ACH",
+      "tags": ["revenue", "recurring_biweekly", "primary_revenue_source"],
+      "payout_period": "2026-04-18 to 2026-05-01"
+    },
+    {
+      "transaction_id": "txn_025",
+      "account_id": "acct_9f3a2c1b7e804d5f",
+      "date": "2026-05-02",
+      "name": "Shopify - Monthly Subscription (Advanced Plan)",
+      "merchant_name": "Shopify Inc.",
+      "amount": -299.00,
+      "currency": "USD",
+      "category": ["Service", "Software"],
+      "category_id": "22016000",
+      "transaction_type": "debit",
+      "pending": false,
+      "payment_channel": "online",
+      "tags": ["fixed_cost", "recurring_monthly", "platform_fee"]
+    }
+  ],
+  "transaction_summary": {
+    "period": "2026-02-02 to 2026-05-03",
+    "total_credits": 120873.85,
+    "total_debits": -63498.80,
+    "net_cash_flow": 57375.05,
+    "monthly_breakdown": {
+      "2026-02": {
+        "revenue": 40157.50,
+        "fixed_costs": -15299.00,
+        "variable_costs": -3428.25,
+        "net": 21430.25
+      },
+      "2026-03": {
+        "revenue": 40011.11,
+        "fixed_costs": -15000.00,
+        "variable_costs": -7641.20,
+        "net": 17369.91
+      },
+      "2026-04": {
+        "revenue": 40470.33,
+        "fixed_costs": -15478.15,
+        "variable_costs": -6040.80,
+        "net": 18951.38
+      }
+    },
+    "recurring_revenue_sources": [
+      {
+        "name": "Shopify Payout",
+        "frequency": "bi-weekly",
+        "avg_amount_per_payout": 20072.31,
+        "avg_monthly_total": 40144.62
+      }
+    ],
+    "recurring_fixed_costs": [
+      {
+        "name": "Gusto Payroll",
+        "frequency": "monthly",
+        "amount": -10000.00
+      },
+      {
+        "name": "Commercial Rent",
+        "frequency": "monthly",
+        "amount": -5000.00
+      },
+      {
+        "name": "Shopify Subscription",
+        "frequency": "monthly",
+        "amount": -299.00
+      }
+    ]
+  }
+}
