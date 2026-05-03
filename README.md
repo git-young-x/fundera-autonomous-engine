@@ -13,7 +13,8 @@ The objective of this system is to move from a reactive model to a **proactive r
 
 The system utilizes an agentic orchestration framework to separate contextual pattern recognition from deterministic financial calculation.
 
-![Technical Architecture](docs/architecture_v2.png)
+<img width="3025" height="1712" alt="image" src="https://github.com/user-attachments/assets/cc60efeb-7491-499c-aacc-1d47293e5a24" />
+
 
 ### **Core Components:**
 
