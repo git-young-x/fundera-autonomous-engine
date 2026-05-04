@@ -45,7 +45,7 @@ The system utilizes an agentic orchestration framework to separate contextual pa
 3. Add an `OPENAI_API_KEY` to a `.env` file for orchestration.
 4. Run the dashboard: `streamlit run app.py`.
 
-<img width="967" height="1494" alt="image" src="https://github.com/user-attachments/assets/7b71872a-4e13-4011-bd14-e0e46bea4dfc" />
+<img width="1468" height="1493" alt="image" src="https://github.com/user-attachments/assets/147f3d55-a63d-40a4-a6f9-593e68e4eecc" />
 
 <img width="3842" height="4550" alt="screencapture-localhost-8501-2026-05-03-19_48_49" src="https://github.com/user-attachments/assets/b7243bb1-480c-4ebb-8e9f-658557e1ce97" />
 
