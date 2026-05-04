@@ -1,5 +1,7 @@
 import time
 
+import altair as alt
+import pandas as pd
 import streamlit as st
 
 from src.graph import run_engine
@@ -8,6 +10,7 @@ st.set_page_config(
     page_title="Financial Analysis & Recommendations",
     layout="centered",
     page_icon="💼",
+    initial_sidebar_state="expanded",
 )
 
 # ── Fundera / NerdWallet Design System ────────────────────────────────────────
@@ -21,6 +24,7 @@ st.markdown("""
 .stDeployButton { display: none !important; }
 [data-testid="stToolbar"] { display: none !important; }
 [data-testid="stDecoration"] { display: none !important; }
+[data-testid="collapsedControl"] { display: none !important; }
 
 /* Base */
 html, body, .stApp { background-color: #FFFFFF !important; }
@@ -29,6 +33,12 @@ html, body, .stApp { background-color: #FFFFFF !important; }
 p, span, div, li, td, th, label,
 .stMarkdown, .stMarkdown p, .stMarkdown span,
 .element-container p, .element-container span, .element-container div {
+    color: #2B2C34 !important;
+}
+[data-testid="stMetricLabel"], [data-testid="stMetricValue"],
+[data-testid="stMetricDelta"], .stMetric label,
+[data-testid="metric-container"] p,
+[data-testid="metric-container"] span {
     color: #2B2C34 !important;
 }
 .main .block-container {
@@ -348,6 +358,103 @@ p, span, div, li, td, th, label,
     border: none;
 }
 
+/* ── Sidebar ── */
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] > div:first-child {
+    background-color: #1F2937 !important;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] li,
+[data-testid="stSidebar"] strong {
+    color: #F9E79F !important;
+}
+[data-testid="stSidebar"] .sidebar-name {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+}
+[data-testid="stSidebar"] .sidebar-company {
+    font-size: 13px !important;
+    color: #F9E79F !important;
+}
+
+/* ── Rationale Cards ── */
+.rationale-grid {
+    background: #F0FDF8;
+    border: 1px solid #D1FAE5;
+    border-radius: 12px;
+    padding: 16px 16px 18px;
+    margin-bottom: 16px;
+}
+.rationale-card {
+    background: #FFFFFF;
+    border: 1px solid #D1FAE5;
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    flex: 1;
+}
+.rationale-icon { font-size: 24px; margin-bottom: 8px; }
+.rationale-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: #065F46 !important;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+.rationale-detail {
+    font-size: 12px;
+    color: #2B2C34 !important;
+    line-height: 1.55;
+}
+
+/* ── CFO Insights Grid ── */
+.insight-card {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    height: 100%;
+}
+.insight-icon { font-size: 22px; margin-bottom: 8px; }
+.insight-text {
+    font-size: 13px;
+    color: #2B2C34 !important;
+    line-height: 1.55;
+    font-weight: 500;
+}
+
+/* ── CFO Verdict Callout ── */
+.cfo-verdict {
+    background: #FFFBEB;
+    border: 1px solid #F59E0B;
+    border-left: 4px solid #F59E0B;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+}
+.cfo-verdict-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B45309;
+    margin-bottom: 6px;
+}
+.cfo-verdict-body {
+    font-size: 14px;
+    color: #78350F !important;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
 /* ── Alternative Option Card ── */
 .alt-card {
     background: #FAFAFA;
@@ -399,6 +506,28 @@ st.markdown("""
     <span>Plaid Connected &amp; Verified</span>
 </div>
 """, unsafe_allow_html=True)
+
+# ── Member Profile Sidebar ────────────────────────────────────────────────────
+
+with st.sidebar:
+    st.markdown("""
+    <div style="padding:8px 0;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34D399;margin-bottom:10px;">Member Profile</div>
+        <div class="sidebar-name" style="margin-bottom:2px;">Sarah</div>
+        <div class="sidebar-company" style="margin-bottom:16px;">Meridian Commerce LLC</div>
+        <div style="height:1px;background:#374151;margin-bottom:14px;"></div>
+        <div style="font-size:12px;color:#D1D5DB;margin-bottom:6px;">
+            <strong style="color:#F9FAFB;">Industry:</strong> E-commerce (Home Decor)
+        </div>
+        <div style="font-size:12px;color:#D1D5DB;margin-bottom:16px;">
+            <strong style="color:#F9FAFB;">Member Since:</strong> 2024
+        </div>
+        <div style="height:1px;background:#374151;margin-bottom:14px;"></div>
+        <div style="font-size:12px;font-weight:600;color:#065F46;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:8px;padding:10px 12px;line-height:1.5;">
+            ✅ Plaid &amp; Gusto Connected
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ── Auto-run engine once per session (webhook-triggered UX simulation) ────────
 
@@ -480,14 +609,38 @@ if st.session_state.get("result"):
 
     st.subheader("Your Financial Snapshot")
 
-    insight = snapshot.get(
-        "insight_summary",
-        f"Your Plaid-connected Chase account shows ${mrr:,.0f}/month MRR with "
-        f"${fcf:,.0f}/month in free cash flow and a documented Q4 inventory pattern.",
-    )
-    st.markdown(f'<p style="font-size:14px;color:#6B7280;line-height:1.65;margin-bottom:18px;">{insight}</p>',
-                unsafe_allow_html=True)
+    # ── CFO Insights Grid ──
+    ins1, ins2, ins3 = st.columns(3)
+    with ins1:
+        st.markdown("""
+        <div class="insight-card">
+            <div class="insight-icon">📈</div>
+            <div class="insight-text"><strong>Stable Inflow:</strong> Verified Shopify payouts averaging $46.6k/mo.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with ins2:
+        st.markdown("""
+        <div class="insight-card">
+            <div class="insight-icon">⚖️</div>
+            <div class="insight-text"><strong>Lean Ops:</strong> Fixed operating costs are well-contained at 32% of MRR.</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with ins3:
+        st.markdown("""
+        <div class="insight-card">
+            <div class="insight-icon">📅</div>
+            <div class="insight-text"><strong>Seasonality:</strong> Historical data flags an $80k inventory cycle starting this month.</div>
+        </div>
+        """, unsafe_allow_html=True)
 
+    st.markdown('<div class="gap-lg"></div>', unsafe_allow_html=True)
+
+    # ── Secondary proof metrics ──
+    st.markdown(
+        '<p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;'
+        'color:#9CA3AF;margin-bottom:4px;">The Numbers Behind the Insights</p>',
+        unsafe_allow_html=True,
+    )
     col_mrr, col_costs, col_fcf = st.columns(3)
     col_mrr.metric(
         label="Monthly Revenue (MRR)",
@@ -514,34 +667,118 @@ if st.session_state.get("result"):
 
     st.subheader("Primary CFO Recommendation")
 
-    rationale_html = "".join(
-        f'<div style="display:flex;gap:10px;font-size:13px;color:#2B2C34;'
-        f'line-height:1.65;padding:7px 0;border-bottom:1px solid #E5E7EB;">'
-        f'<span style="color:#00A36C;font-weight:700;flex-shrink:0;">→</span>'
-        f'<span>{bullet}</span></div>'
-        for bullet in rationale
-    )
+    current_month = time.strftime("%B")
+    st.markdown(f"""
+    <div class="cfo-verdict">
+        <div class="cfo-verdict-label">CFO Verdict</div>
+        <div class="cfo-verdict-body">
+            Based on your {current_month} growth cycle, we recommend securing this inventory capital
+            now to maximize Q4 margins.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown(f"""
     <div class="card" style="border:2px solid #00A36C;background:linear-gradient(135deg,#FAFFFE 0%,#F0FDF8 100%);padding:24px 26px;margin-bottom:16px;">
-        <div class="card-label" style="color:#065F46;">Pre-Approved Offer &nbsp;·&nbsp; {lender} Business Term Loan</div>
-        <div style="font-size:34px;font-weight:800;color:#2B2C34;letter-spacing:-0.5px;margin:4px 0 2px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;">
+            <div class="card-label" style="color:#065F46;margin-bottom:0;">Pre-Approved Offer &nbsp;·&nbsp; {lender} Business Term Loan</div>
+            <div style="font-size:11px;font-weight:600;color:#92400E;background:#FFFBEB;border:1px solid #FCD34D;border-radius:20px;padding:3px 12px;white-space:nowrap;">⭐ 4.8/5 Trustpilot &nbsp;·&nbsp; BlueVine Preferred Partner</div>
+        </div>
+        <div style="font-size:42px;font-weight:800;color:#2B2C34;letter-spacing:-1px;margin:4px 0 6px;line-height:1.1;">
             {fmt_usd(loan_amount)}
+        </div>
+        <div style="font-size:12px;font-weight:500;color:#92400E;background:#FFFBEB;border:1px solid #FCD34D;border-radius:6px;padding:5px 12px;display:inline-block;margin-bottom:14px;">
+            🕒 Priority offer expires in 48 hours to lock in Q2 inventory rates.
         </div>
         <div style="font-size:15px;color:#6B7280;margin-bottom:16px;">
             {fmt_pct(rate)} APR &nbsp;·&nbsp; {term} months &nbsp;·&nbsp; {fmt_usd(monthly_payment)}/mo
         </div>
-        <div style="display:inline-flex;align-items:center;gap:6px;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:#065F46;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:#065F46;letter-spacing:0.06em;text-transform:uppercase;">
             ✓ &nbsp;{risk_display}
         </div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#00A36C;margin-bottom:8px;">
-            CFO Rationale
-        </div>
-        {rationale_html}
     </div>
     """, unsafe_allow_html=True)
 
+    st.markdown("""
+    <div class="rationale-grid">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#065F46;margin-bottom:12px;">Expert Analysis</div>
+        <div style="display:flex;gap:10px;">
+            <div class="rationale-card">
+                <div class="rationale-icon">📜</div>
+                <div class="rationale-header">Proven Growth Lever</div>
+                <div class="rationale-detail">Your 2025 data shows this exact inventory buy yielded a 320% ROI. Current velocity suggests an even higher capture for Q4 2026.</div>
+            </div>
+            <div class="rationale-card">
+                <div class="rationale-icon">🛡️</div>
+                <div class="rationale-header">Deep Safety Margin</div>
+                <div class="rationale-detail">4.54x DSCR. You maintain $24.6k in untouched monthly free cash flow.</div>
+            </div>
+            <div class="rationale-card">
+                <div class="rationale-icon">⏰</div>
+                <div class="rationale-header">Zero Penalty Exit</div>
+                <div class="rationale-detail">Pay off the balance early as revenue scales to save $3,500+ in interest.</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    roi_df = pd.DataFrame([
+        {"Scenario": "Current Trajectory", "Q4 Revenue": 148_000},
+        {"Scenario": "Inventory-Boosted",  "Q4 Revenue": 210_000},
+    ])
+    roi_chart = (
+        alt.Chart(roi_df)
+        .mark_bar(cornerRadiusTopLeft=5, cornerRadiusTopRight=5)
+        .encode(
+            x=alt.X("Scenario:N", axis=alt.Axis(labelAngle=0, title=None)),
+            y=alt.Y(
+                "Q4 Revenue:Q",
+                axis=alt.Axis(format="$,.0f", title="Projected Q4 Revenue"),
+                scale=alt.Scale(domainMin=0),
+            ),
+            color=alt.condition(
+                alt.datum.Scenario == "Inventory-Boosted",
+                alt.value("#00A36C"),
+                alt.value("#D3D3D3"),
+            ),
+            tooltip=[
+                alt.Tooltip("Scenario:N", title="Scenario"),
+                alt.Tooltip("Q4 Revenue:Q", title="Revenue", format="$,.0f"),
+            ],
+        )
+        .properties(height=220)
+        .configure(background="#FFFFFF")
+        .configure_view(strokeWidth=0, fill="#FFFFFF")
+        .configure_axis(
+            labelColor="#2B2C34",
+            titleColor="#2B2C34",
+            gridColor="#F3F4F6",
+            domainColor="#E5E7EB",
+            tickColor="#E5E7EB",
+            labelFontSize=12,
+            titleFontSize=11,
+        )
+    )
+    chart_col, metric_col = st.columns([2, 1])
+    with chart_col:
+        st.altair_chart(roi_chart, use_container_width=True, theme=None)
+        st.caption("Don't leave $60k+ in seasonal revenue on the table due to stock-outs.")
+    with metric_col:
+        st.markdown('<div style="height:36px;"></div>', unsafe_allow_html=True)
+        st.metric(label="Potential Revenue Gap", value="$62,000")
+        st.markdown(
+            '<p style="font-size:11px;color:#6B7280;line-height:1.5;margin-top:2px;">'
+            "Based on Q4 stock-out risks identified in your 2025 ledger.</p>",
+            unsafe_allow_html=True,
+        )
+
     st.button("Review Pre-Filled Terms →", type="primary")
+    st.markdown(
+        '<p style="font-size:12px;color:#9CA3AF;text-align:center;margin-top:6px;line-height:1.5;">'
+        "No new paperwork. We've pre-populated your agreement using your connected data "
+        "for 1-click review.</p>",
+        unsafe_allow_html=True,
+    )
 
     st.markdown('<div class="gap-lg"></div>', unsafe_allow_html=True)
 
